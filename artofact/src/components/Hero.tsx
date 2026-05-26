@@ -19,8 +19,8 @@ export default function Hero() {
           priority
           className="object-cover object-center"
         />
-        {/* Dark overlay with toned down yellow/gold tint */}
-        <div className="absolute inset-0 bg-black/45 backdrop-blur-[1px]"></div>
+        {/* Dark overlay blending into body background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-[#0A0A09]"></div>
       </div>
       
       <div className="max-w-5xl mx-auto text-center z-10 w-full flex flex-col items-center">

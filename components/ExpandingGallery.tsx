@@ -13,7 +13,7 @@ export default function ExpandingGallery() {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-20">
       <div className="text-center mb-12">
-        <h2 className="font-serif text-3xl md:text-5xl text-gray-900 mb-4">Discover the Realm</h2>
+        <h2 className="font-serif text-3xl md:text-5xl text-[#FCFBF7] mb-4">Discover the Realm</h2>
         <div className="h-1 w-20 bg-gold-500 mx-auto rounded-full"></div>
       </div>
       

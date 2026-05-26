@@ -60,10 +60,10 @@ export default function Countdown({ targetDate }: { targetDate: Date }) {
           { label: "Seconds", value: timeLeft.seconds },
         ].map((item, i) => (
           <div key={i} className="flex flex-col items-center">
-            <div className="w-16 h-16 md:w-24 md:h-24 bg-[#FCFBF7]/95 border border-gold-400/40 rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(230,194,84,0.18)] hover:scale-105 hover:border-gold-400 transition-all duration-300 mb-2">
-              <span className="font-serif text-2xl md:text-4xl text-gray-900 font-bold">{item.value}</span>
+            <div className="w-16 h-16 md:w-24 md:h-24 bg-black/55 backdrop-blur-md border border-gold-400/20 rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(230,194,84,0.08)] hover:scale-105 hover:border-gold-400 hover:shadow-[0_8px_30px_rgba(230,194,84,0.2)] transition-all duration-300 mb-2">
+              <span className="font-serif text-2xl md:text-4xl text-[#FCFBF7] font-bold">{item.value}</span>
             </div>
-            <span className="text-xs font-semibold text-white/80 uppercase tracking-widest drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">{item.label}</span>
+            <span className="text-xs font-semibold text-[#C5C2BA] uppercase tracking-widest drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">{item.label}</span>
           </div>
         ))}
       </div>

@@ -32,14 +32,14 @@ export default function BottomLeftOverlay() {
         {/* IP Copy Button */}
         <button
           onClick={handleCopy}
-          className="group flex items-center gap-3 bg-white/90 backdrop-blur-md border border-gray-100 shadow-xl px-4 py-2.5 rounded-full hover:scale-105 transition-all duration-300 lux-shadow"
+          className="group flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/10 shadow-xl px-4 py-2.5 rounded-full hover:scale-105 hover:border-gold-400/30 transition-all duration-300 lux-shadow pointer-events-auto"
         >
           <div className="bg-gold-400/10 p-1.5 rounded-full text-gold-400">
             {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           </div>
           <div className="flex flex-col items-start">
             <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase leading-none">Server IP</span>
-            <span className="text-sm font-semibold text-gray-900">{ip}</span>
+            <span className="text-sm font-semibold text-[#FCFBF7]">{ip}</span>
           </div>
         </button>
 
