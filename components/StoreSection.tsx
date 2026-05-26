@@ -10,9 +10,9 @@ export default function StoreSection({ packages }: { packages: Package[] }) {
       <div className="max-w-6xl mx-auto px-4">
         
         <div className="text-center mb-24">
-          <span className="text-gold-500 text-xs font-bold tracking-[0.3em] uppercase mb-4 block">The Boutique</span>
+          <span className="text-gold-400 text-xs font-bold tracking-[0.3em] uppercase mb-4 block">The Boutique</span>
           <h2 className="font-serif text-4xl md:text-5xl text-gray-900">Curated Collections</h2>
-          <div className="h-1 w-20 bg-gold-500 mx-auto rounded-full mt-6"></div>
+          <div className="h-1 w-20 bg-gold-400 mx-auto rounded-full mt-6"></div>
         </div>
 
         {/* Subscriptions */}

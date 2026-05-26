@@ -18,7 +18,7 @@ export default function BottomLeftOverlay() {
   return (
     <div className="fixed bottom-6 left-6 z-50 flex items-end gap-4 pointer-events-none">
       {/* Logo */}
-      <div className="relative w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl pointer-events-auto filter drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+      <div className="relative w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl pointer-events-auto filter drop-shadow-[0_0_15px_rgba(230,194,84,0.3)]">
         <Image
           src="/assets/artifactsmpt.png"
           alt="Artifact SMP Logo"
@@ -34,7 +34,7 @@ export default function BottomLeftOverlay() {
           onClick={handleCopy}
           className="group flex items-center gap-3 bg-white/90 backdrop-blur-md border border-gray-100 shadow-xl px-4 py-2.5 rounded-full hover:scale-105 transition-all duration-300 lux-shadow"
         >
-          <div className="bg-gold-500/10 p-1.5 rounded-full text-gold-500">
+          <div className="bg-gold-400/10 p-1.5 rounded-full text-gold-400">
             {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           </div>
           <div className="flex flex-col items-start">

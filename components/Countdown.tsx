@@ -43,7 +43,7 @@ export default function Countdown({ targetDate }: { targetDate: Date }) {
 
   if (status === "open") {
     return (
-      <div className="flex justify-center items-center py-6 px-12 bg-gold-500 text-white rounded-full lux-shadow mx-auto w-max mb-12 animate-pulse">
+      <div className="flex justify-center items-center py-6 px-12 bg-gold-400 text-white rounded-full lux-shadow mx-auto w-max mb-12 animate-pulse">
         <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-widest">SERVER OPEN NOW</h2>
       </div>
     );
@@ -51,7 +51,7 @@ export default function Countdown({ targetDate }: { targetDate: Date }) {
 
   return (
     <div className="flex flex-col items-center justify-center mb-12">
-      <p className="text-sm text-gold-500 font-bold tracking-widest uppercase mb-4">Launch Countdown</p>
+      <p className="text-sm text-gold-400 font-bold tracking-[0.2em] uppercase mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">Launch Countdown</p>
       <div className="flex gap-4 md:gap-8">
         {[
           { label: "Days", value: timeLeft.days },
@@ -60,10 +60,10 @@ export default function Countdown({ targetDate }: { targetDate: Date }) {
           { label: "Seconds", value: timeLeft.seconds },
         ].map((item, i) => (
           <div key={i} className="flex flex-col items-center">
-            <div className="w-16 h-16 md:w-24 md:h-24 bg-white border border-gray-100 rounded-2xl flex items-center justify-center lux-shadow mb-2">
-              <span className="font-serif text-2xl md:text-4xl text-gray-900">{item.value}</span>
+            <div className="w-16 h-16 md:w-24 md:h-24 bg-[#FCFBF7]/95 border border-gold-400/40 rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(230,194,84,0.18)] hover:scale-105 hover:border-gold-400 transition-all duration-300 mb-2">
+              <span className="font-serif text-2xl md:text-4xl text-gray-900 font-bold">{item.value}</span>
             </div>
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{item.label}</span>
+            <span className="text-xs font-semibold text-white/80 uppercase tracking-widest drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">{item.label}</span>
           </div>
         ))}
       </div>
