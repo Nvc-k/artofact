@@ -2,54 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    background-color: #080b11;
-    color: #f8fafc;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    overflow-x: hidden;
-  }
-
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #080b11;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
+:root {
+  --background: #FAFAFA;
+  --foreground: #1A1A1A;
 }
 
-@layer utilities {
-  .text-glow-gold {
-    text-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
-  }
-  .text-glow-indigo {
-    text-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
-  }
-  .glass-panel {
-    background: rgba(13, 18, 30, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  .glass-card {
-    background: rgba(17, 24, 39, 0.45);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .glass-card:hover {
-    background: rgba(20, 30, 50, 0.55);
-    border-color: rgba(255, 255, 255, 0.12);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(99, 102, 241, 0.15);
-  }
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.lux-shadow {
+  box-shadow: 0 10px 30px -10px #F9E596;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to right, #E6C254, #B59325);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

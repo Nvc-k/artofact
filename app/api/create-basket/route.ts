@@ -15,17 +15,13 @@ export async function POST(request: Request) {
     const privateKey = process.env.TEBEX_PRIVATE_KEY;
     const accountId = process.env.TEBEX_ACCOUNT_ID;
 
-    // Fallback: If Tebex credentials are not configured, return a mock checkout link
     if (!privateKey || !accountId) {
-      console.warn("Tebex credentials not configured. Returning mock checkout URL.");
+      console.warn("Using mock checkout url because Tebex keys are missing.");
       return NextResponse.json({
-        links: {
-          checkout: `/pitch-success?packageId=${packageId}`
-        }
+        links: { checkout: "https://artifact-smp.tebex.io/checkout" }
       });
     }
 
-    // Basic authentication with private key
     const auth = Buffer.from(`${privateKey}:`).toString("base64");
     const url = `https://headless.tebex.io/api/accounts/${accountId}/baskets`;
 
@@ -42,15 +38,12 @@ export async function POST(request: Request) {
             quantity: 1,
           },
         ],
-        // Optionally configure redirect links:
-        // complete_url: "https://yourdomain.com/thank-you",
-        // cancel_url: "https://yourdomain.com/store",
       }),
     });
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error("Tebex API error response:", errorData);
+      console.error("Tebex API error:", errorData);
       return NextResponse.json(
         { error: "Basket creation failed" },
         { status: 500 }
@@ -60,7 +53,7 @@ export async function POST(request: Request) {
     const basket = await response.json();
     return NextResponse.json(basket);
   } catch (error) {
-    console.error("Server error creating Tebex basket:", error);
+    console.error("Server error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

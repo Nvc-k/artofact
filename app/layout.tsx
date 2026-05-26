@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({ 
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  variable: "--font-outfit",
 });
 
-const jakarta = Plus_Jakarta_Sans({ 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  variable: "--font-jakarta",
 });
 
 export const metadata: Metadata = {
-  title: "Artifact SMP – Official Server Webstore",
-  description: "Enhance your survival experience on Artifact SMP. Buy subscription ranks, lifetime ranks, and server crate keys securely.",
+  title: "Artifact SMP | Luxury Minecraft Experience",
+  description: "The ultimate premium Minecraft SMP.",
 };
 
 export default function RootLayout({
@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${jakarta.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-[#080b11] text-slate-100 antialiased">
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen relative`}>
         {children}
       </body>
     </html>
