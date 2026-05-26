@@ -178,10 +178,13 @@ export default function StorePage() {
               <div className="flex items-center gap-4 overflow-x-auto pb-1 scrollbar-none">
                 {recentPayments.map((payment, i) => (
                   <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/5 py-1.5 px-3 rounded-lg flex-shrink-0">
-                    <img
+                    <Image
                       src={`https://crafthead.net/avatar/${payment}`}
                       alt={payment}
+                      width={20}
+                      height={20}
                       className="w-5 h-5 rounded-md bg-black/20"
+                      unoptimized
                     />
                     <span className="font-mono text-xs text-slate-200 font-bold">{payment}</span>
                   </div>

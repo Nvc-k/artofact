@@ -134,7 +134,7 @@ export async function GET() {
         type: pkg.type === "subscription" ? "subscription" : "single",
         description: pkg.description || mockPkg?.description || "",
         perks: mockPkg?.perks || [],
-        image: mockPkg?.image
+        image: (mockPkg as any)?.image
       };
     });
 
