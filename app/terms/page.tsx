@@ -17,7 +17,7 @@ export default function TermsPage() {
         <p className="mb-4">We are a Licensed seller for goods for this game, game server or Discord server (&quot;Platform&quot;). We buy licenses for the use of digital goods and software from the Platform which we sell to end-customers. We are Tebex Limited t/a Tebex, a company registered in England and Wales with company number 08129184...</p>
 
         <h2 className="font-serif text-2xl text-white mt-12 mb-4">Contacting us</h2>
-        <p className="mb-4">If you wish to contact us for technical support, you need to report fraudulent activity, or that a Platform is breaching our or a partner's AUP, you can contact us by visiting https://www.tebex.io/contact/checkout.</p>
+        <p className="mb-4">If you wish to contact us for technical support, you need to report fraudulent activity, or that a Platform is breaching our or a partner&apos;s AUP, you can contact us by visiting https://www.tebex.io/contact/checkout.</p>
 
         <h2 className="font-serif text-2xl text-white mt-12 mb-4">The Webstore and Products</h2>
         <p className="mb-4">All title, ownership rights and intellectual property rights in the Webstore are owned by Us. All title, ownership rights and intellectual property rights in the Products are owned by the Platform and licenses to use the Products are sold to Us. We, the Platform and our licensors reserve all rights in national and international law to protect such rights in the event of any violation of these terms by you.</p>
