@@ -37,17 +37,6 @@ export default function BottomLeftOverlay() {
 
   return (
     <div className="fixed bottom-6 left-6 z-50 flex items-end gap-4 pointer-events-none">
-      {/* Logo */}
-      <div className="relative w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl pointer-events-auto filter drop-shadow-[0_0_15px_rgba(230,194,84,0.3)]">
-        <Image
-          src="/assets/artifactsmpt.png"
-          alt="Artifact SMP Logo"
-          fill
-          priority
-          className="object-contain"
-        />
-      </div>
-
       <div className="flex flex-row gap-3 pointer-events-auto pb-4">
         {/* IP Copy Button */}
         <button

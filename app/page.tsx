@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ExpandingGallery from "@/components/ExpandingGallery";
@@ -7,12 +8,25 @@ import { Package } from "@/app/api/packages/route";
 
 async function getPackages(): Promise<Package[]> {
   try {
+    const accountId = process.env.TEBEX_ACCOUNT_ID;
+    const publicToken = process.env.TEBEX_PUBLIC_TOKEN;
+    
+    if (!accountId || !publicToken) {
+      console.warn("Missing Tebex credentials in environment variables.");
+      return [];
+    }
+
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/packages`,
-      { cache: "no-store" }
+      `https://headless.tebex.io/api/accounts/${accountId}/packages`,
+      { 
+        headers: {
+          "X-Tebex-Token": publicToken,
+        },
+        cache: "no-store" 
+      }
     );
     if (!res.ok) {
-      console.error("Failed to fetch packages from internal API");
+      console.error("Failed to fetch packages from Tebex API");
       return [];
     }
     return res.json();
@@ -61,6 +75,10 @@ export default async function Home() {
             </p>
           </div>
           <div className="text-xs text-gray-500 font-sans flex flex-col gap-2 md:items-end">
+            <div className="flex gap-4">
+              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            </div>
             <span>&copy; {new Date().getFullYear()} Artifact SMP. All rights reserved.</span>
             <span>Not affiliated with Mojang Studios, Minecraft, or Microsoft.</span>
           </div>
