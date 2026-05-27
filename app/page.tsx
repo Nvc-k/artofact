@@ -43,7 +43,6 @@ export default async function Home() {
       
       {/* Rest of the page content */}
       <div className="relative w-full">
-        <ExpandingGallery />
         <StoreSection packages={packages} />
       </div>
       

@@ -35,20 +35,38 @@ export default function ProductCard({ pkg }: { pkg: Package }) {
     <div className="bg-black/50 border border-white/5 rounded-3xl p-8 flex flex-col hover:-translate-y-2 hover:border-gold-400/40 hover:shadow-[0_10px_30px_-10px_rgba(230,194,84,0.15)] transition-all duration-300 group relative overflow-hidden backdrop-blur-sm shadow-xl">
       <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 rounded-full blur-2xl -z-10 group-hover:bg-gold-400/20 transition-colors duration-500"></div>
       
+      {/* Product Image */}
+      <div className="flex justify-center mb-8 relative h-32 w-full">
+        <img
+          src={
+            pkg.image ||
+            (pkg.type === "subscription"
+              ? "/assets/image.png"
+              : pkg.name.toLowerCase().includes("afk")
+              ? "/assets/afkkey.png"
+              : pkg.name.toLowerCase().includes("playtime")
+              ? "/assets/playtimekey.png"
+              : "/assets/artifactcratekey.png")
+          }
+          alt={pkg.name}
+          className="object-contain h-full drop-shadow-[0_10px_20px_rgba(230,194,84,0.2)] group-hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+
       <div className="flex justify-between items-start mb-6">
         <h3 className="font-serif text-2xl font-bold text-[#FCFBF7] group-hover:text-gold-400 transition-colors">{pkg.name}</h3>
-        <div className="text-right">
+        <div className="text-right flex flex-col items-end">
           <div className="text-xl font-bold text-[#FCFBF7]">
             ${pkg.price.toFixed(2)}
           </div>
           {pkg.type === "subscription" && (
-            <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest">/ Month</div>
+            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">/ Month</div>
           )}
         </div>
       </div>
       
       <p className="text-[#C5C2BA] text-sm font-sans mb-8 flex-grow leading-relaxed">
-        {pkg.description}
+        {pkg.description || "Experience premium perks and unlock exclusive features on the Artifact SMP."}
       </p>
 
       {pkg.perks && pkg.perks.length > 0 && (
