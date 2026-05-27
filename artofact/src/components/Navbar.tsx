@@ -3,19 +3,20 @@ import { Store, Map, BookOpen, Crown } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 p-6 flex justify-end">
-      <div className="flex items-center gap-8 bg-black/40 backdrop-blur-md px-8 py-3 rounded-full border border-white/10 shadow-lg">
-        <Link href="/" className="text-sm font-semibold tracking-wide text-gray-200 hover:text-gold-400 transition-colors uppercase flex items-center gap-2">
+    <nav className="absolute top-0 left-0 w-full z-50 p-6 flex justify-center md:justify-end">
+      <div className="flex items-center gap-6 md:gap-8 bg-black/50 backdrop-blur-xl px-6 md:px-8 py-3.5 rounded-full border border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+        <Link href="/" className="text-xs md:text-sm font-medium tracking-[0.1em] text-white/70 hover:text-white transition-colors uppercase">
           Home
         </Link>
-        <Link href="#store" className="text-sm font-semibold tracking-wide text-gray-200 hover:text-gold-400 transition-colors uppercase flex items-center gap-2">
+        <Link href="#store" className="text-xs md:text-sm font-medium tracking-[0.1em] text-white/70 hover:text-white transition-colors uppercase">
           Store
         </Link>
-        <Link href="/rules" className="text-sm font-semibold tracking-wide text-gray-200 hover:text-gold-400 transition-colors uppercase flex items-center gap-2">
-          Rules
+        <Link href="#gallery" className="text-xs md:text-sm font-medium tracking-[0.1em] text-white/70 hover:text-white transition-colors uppercase">
+          Gallery
         </Link>
-        <Link href="#store" className="bg-gold-400 hover:bg-gold-500 text-gray-950 px-5 py-2 rounded-full text-sm font-bold tracking-widest uppercase transition-all lux-shadow flex items-center gap-2">
-          <Crown className="w-4 h-4" /> VIP
+        <div className="w-[1px] h-4 bg-white/20 mx-2"></div>
+        <Link href="/login" className="text-xs md:text-sm font-bold tracking-[0.1em] text-white hover:text-gold-400 transition-colors uppercase flex items-center gap-2">
+          Login
         </Link>
       </div>
     </nav>
