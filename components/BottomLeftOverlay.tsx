@@ -28,19 +28,14 @@ export default function BottomLeftOverlay() {
         />
       </div>
 
-      <div className="flex flex-col gap-3 pointer-events-auto pb-4">
+      <div className="flex flex-row gap-3 pointer-events-auto pb-4">
         {/* IP Copy Button */}
         <button
           onClick={handleCopy}
-          className="group flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/10 shadow-xl px-4 py-2.5 rounded-full hover:scale-105 hover:border-gold-400/30 transition-all duration-300 lux-shadow pointer-events-auto"
+          className="group flex items-center justify-center gap-2 bg-black/50 backdrop-blur-xl border border-white/5 shadow-xl w-40 py-3 rounded-2xl hover:-translate-y-1 hover:border-white/20 transition-all duration-300"
         >
-          <div className="bg-gold-400/10 p-1.5 rounded-full text-gold-400">
-            {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-          </div>
-          <div className="flex flex-col items-start">
-            <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase leading-none">Server IP</span>
-            <span className="text-sm font-semibold text-[#FCFBF7]">{ip}</span>
-          </div>
+          {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-white/70 group-hover:text-white" />}
+          <span className="text-xs font-bold tracking-widest text-white/90 uppercase">{ip}</span>
         </button>
 
         {/* Discord Redirect Button */}
@@ -48,15 +43,10 @@ export default function BottomLeftOverlay() {
           href="https://discord.gg/2M4MachNVx"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-3 bg-[#5865F2] shadow-lg shadow-[#5865F2]/20 px-4 py-2.5 rounded-full hover:scale-105 transition-all duration-300"
+          className="group flex items-center justify-center gap-2 bg-black/50 backdrop-blur-xl border border-white/5 shadow-xl w-40 py-3 rounded-2xl hover:-translate-y-1 hover:border-[#5865F2]/50 transition-all duration-300"
         >
-          <div className="bg-white/20 p-1.5 rounded-full text-white">
-            <MessageSquare className="w-4 h-4" />
-          </div>
-          <div className="flex flex-col items-start">
-            <span className="text-[10px] font-bold tracking-widest text-white/80 uppercase leading-none">Join the</span>
-            <span className="text-sm font-semibold text-white">Discord</span>
-          </div>
+          <MessageSquare className="w-4 h-4 text-[#5865F2] group-hover:text-[#5865F2] transition-colors" />
+          <span className="text-xs font-bold tracking-widest text-white/90 uppercase">Discord</span>
         </Link>
       </div>
     </div>
