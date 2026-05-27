@@ -2,18 +2,27 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Package } from "@/app/api/packages/route";
 
 export default function ProductCard({ pkg }: { pkg: Package }) {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handlePurchase = async () => {
+    const username = localStorage.getItem("artifact_username");
+    
+    if (!username) {
+      router.push("/login");
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch("/api/create-basket", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ packageId: pkg.id }),
+        body: JSON.stringify({ packageId: pkg.id, username }),
       });
 
       if (!res.ok) throw new Error("Failed to create basket");

@@ -3,11 +3,11 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const packageId = body.packageId;
+    const { packageId, username } = body;
 
-    if (!packageId) {
+    if (!packageId || !username) {
       return NextResponse.json(
-        { error: "Missing packageId" },
+        { error: "Missing packageId or username" },
         { status: 400 }
       );
     }
@@ -32,6 +32,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        username: username,
         packages: [
           {
             id: packageId,
