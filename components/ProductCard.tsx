@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Package } from "@/app/api/packages/route";
 
 export default function ProductCard({ pkg }: { pkg: Package }) {
@@ -37,19 +38,19 @@ export default function ProductCard({ pkg }: { pkg: Package }) {
       
       {/* Product Image */}
       <div className="flex justify-center mb-8 relative h-32 w-full">
-        <img
+        <Image
           src={
-            pkg.image ||
-            (pkg.type === "subscription"
+            pkg.type === "subscription"
               ? "/assets/image.png"
               : pkg.name.toLowerCase().includes("afk")
               ? "/assets/afkkey.png"
               : pkg.name.toLowerCase().includes("playtime")
               ? "/assets/playtimekey.png"
-              : "/assets/artifactcratekey.png")
+              : "/assets/artifactcratekey.png"
           }
           alt={pkg.name}
-          className="object-contain h-full drop-shadow-[0_10px_20px_rgba(230,194,84,0.2)] group-hover:scale-110 transition-transform duration-500"
+          fill
+          className="object-contain drop-shadow-[0_10px_20px_rgba(230,194,84,0.2)] group-hover:scale-110 transition-transform duration-500"
         />
       </div>
 
