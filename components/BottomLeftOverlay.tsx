@@ -9,10 +9,30 @@ export default function BottomLeftOverlay() {
   const [copied, setCopied] = useState(false);
   const ip = "play.artifactsmp.com";
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(ip);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(ip);
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = ip;
+        textArea.style.position = "absolute";
+        textArea.style.left = "-999999px";
+        document.body.prepend(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+        } catch (error) {
+          console.error(error);
+        } finally {
+          textArea.remove();
+        }
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy!', err);
+    }
   };
 
   return (

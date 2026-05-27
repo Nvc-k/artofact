@@ -26,31 +26,29 @@ export default async function Home() {
   const packages = await getPackages();
 
   return (
-    <main className="relative flex min-h-screen flex-col bg-[#0A0A09] text-[#FCFBF7] overflow-hidden">
+    <main 
+      className="relative flex min-h-screen flex-col text-[#FCFBF7] overflow-hidden"
+      style={{
+        backgroundImage: "url('/assets/hero.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed"
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#0A0A09]/80 to-[#0A0A09] -z-10 fixed"></div>
+      
       <Navbar />
       <BottomLeftOverlay />
       <Hero />
       
-      {/* Background Video Section for the rest of the page */}
+      {/* Rest of the page content */}
       <div className="relative w-full">
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <video
-            src="/assets/voxel_flower.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-25 filter brightness-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A09] via-black/40 to-[#0A0A09]"></div>
-        </div>
-        
         <ExpandingGallery />
         <StoreSection packages={packages} />
       </div>
       
       {/* Footer */}
-      <footer className="bg-gray-900 border-t border-gray-800 py-16">
+      <footer className="bg-gray-900/50 backdrop-blur-md border-t border-gray-800/50 py-16">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
             <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
